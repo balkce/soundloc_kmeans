@@ -1,7 +1,7 @@
-# soundloc
+# soundloc_kmeans
 Lightweight multiple sound source localization, based on a triangular microphone array.
 
-Based on a combination of the original soundloc package and Luis Gato's kmeans-based improvement.
+Based on a combination of the [original soundloc package](https://github.com/balkce/soundloc) and Luis Gato's [kmeans-based improvement](https://github.com/lmiguelgato/DAP_project).
 
 Uses JACK for input/audio audio server.
 
