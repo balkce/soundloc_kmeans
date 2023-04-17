@@ -525,7 +525,7 @@ int jack_callback (jack_nframes_t nframes, void *arg){
 	
 	this_mag = ((mag_left+mag_right+mag_front)/nframes)/(n_in_channels);
 	if(VERBOSE)
-		std::cout << "TestVAD.Capture: (" << in_silence << ") this_mag -> " << this_mag << " (noise_mag: " << noise_mag << ")" << " <> " << noise_mag+noise_threshold << "\n";
+		std::cout << "TestVAD.Capture: (" << in_silence << ", "<< noise_j << ") this_mag -> " << this_mag << " (noise_mag: " << noise_mag << ")" << " <> " << noise_mag+noise_threshold << "\n";
 	
 	if (!in_silence && this_mag > noise_mag+noise_threshold){
 		
@@ -747,6 +747,8 @@ int jack_callback (jack_nframes_t nframes, void *arg){
 				printf("SoundLoc: ---\n");
 				g_mutex_unlock (&mutex_sources);
 				REDRAW = 1;
+			}else{
+				printf("found something, but shift register not full : %d (%d) ... need more data\n",icounter,hist_length);
 			}
 		}else{
 			g_mutex_lock (&mutex_sources);
